@@ -1,17 +1,13 @@
-<div id="<%= dom_id movie %>">
-  <p>
-    <strong>Title:</strong>
+<%= turbo_frame_tag movie do %>
+<div class='mb-4'>
+  <h4 class='text-xl text-orange-700'>
     <%= movie.title %>
-  </p>
-
-  <p>
-    <strong>Year:</strong>
-    <%= movie.year %>
-  </p>
-
-  <p>
-    <strong>Director:</strong>
-    <%= movie.director %>
-  </p>
-
+    <small>
+      <%= link_to 'edit', edit_movie_path(movie) %> |
+      <%= button_to 'remove', movie_path(movie), method: :delete, target: '_top' %>
+    </small>
+  </h4>
+  <strong class='text-zinc-700'><%= movie.year %></strong> |
+  <%= movie.director %>
 </div>
+<% end %>

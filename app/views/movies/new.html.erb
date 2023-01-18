@@ -1,6 +1,8 @@
 <h1>New movie</h1>
 
-<%= render "form", movie: @movie %>
+<%= turbo_frame_tag 'new-movie', target: '_top' do %>
+  <%= render "form", movie: @movie %>
+<% end %>
 
 <br>
 
